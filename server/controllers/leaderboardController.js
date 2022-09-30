@@ -27,7 +27,7 @@ leaderboardController.getLeaderboard = (req, res, next) => {
     fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
         method: 'POST',
         headers: {
-            'X-API-KEY': '74708e84c6d243bc832af07d61be8d8d',
+            'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
             'Accept': 'application/json', 
             'Content-type': 'application/json'
         },

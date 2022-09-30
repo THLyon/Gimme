@@ -18,7 +18,6 @@ router.get('/tournament', tournamentController.getTournament, (req, res) => {
 })
 
 router.get('/season', tournamentController.getSeason, (req, res) => {
-    console.log(res.locals.season)
     return res.status(200).json(res.locals.season);
 })
 
