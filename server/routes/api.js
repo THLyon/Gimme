@@ -8,7 +8,7 @@ const router = express.Router();
 
 //access leaderboard data here; 
 
-router.get('/', tournamentController.getSeason, tournamentController.getTournament, tournamentController.getLeaderboard, (req, res) => {
+router.get('/gimme', tournamentController.getSeason, tournamentController.getTournament, tournamentController.getLeaderboard, (req, res) => {
     console.log(res.locals)
     res.status(200).send(res.locals);  //.tournamentData
 });
@@ -17,5 +17,9 @@ router.get('/tournament', tournamentController.getTournament, (req, res) => {
     return res.status(200).send(res.locals); 
 })
 
+router.get('/season', tournamentController.getSeason, (req, res) => {
+    console.log(res.locals.season)
+    return res.status(200).json(res.locals.season);
+})
 
 module.exports= router; 

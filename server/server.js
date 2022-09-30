@@ -15,6 +15,7 @@ const apiRouter = require('./routes/api');
 // const playerRouter = require('.routes/player'); 
 // const tournamentRouter = require('./routes/tournament'); 
 
+
 app.use('/build' , express.static(path.join(__dirname, '../build')));
 
 

@@ -3,13 +3,16 @@ const path = require('path');
 const dateFunctionController = require('./dateFunctionController.js');
 
 
-let seasonId;
+let seasonId; 
 
 let tournamentId;
 
 //output is a string 
 //if string.length - 2 + string.length - 1 is >= startdate.length -2 + startDate.length - 1 &&  string.length - 2 + string.length - 1 is <= endDate.length -2 + enddate.length - 1
     //return tournamentid
+
+
+
 
 
 //api to access current season
@@ -29,31 +32,51 @@ const apiKey = '74708e84c6d243bc832af07d61be8d8d';
 //middleware fetching tournament id based on date; 
     //pass in tournament id based on date
 
+
+
+
+function currentDate(date, num = 0) {
+    let d = new Date(date),
+        month = '' + (d.getMonth() + 1),
+        day = '' + (d.getDate() + num) ,
+        year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+};
+
 const tournamentController = {}; 
 
 
 //middleware to access season: 
 tournamentController.getSeason = (req, res, next) => {
+   const { SeasonId } = req.body; 
+    console.log('getSeason')
     fetch(currentSeasonApi,{
         method: 'GET',
         headers: {
-            'X-API-KEY': '74708e84c6d243bc832af07d61be8d8d',
+            'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
+            'Accept': 'application/json', 
             'Content-type': 'application/json'
         }
+
     }) 
     .then((data) => data.json())
     .then((data) => {
         res.locals.season = data.SeasonID
         console.log(res.locals.season);
+        next(); 
     })
-    .catch(err => createErr({
+    .catch(err => next(createErr({
         //    method: 'getTournament', 
         //    type: 'when reading file', 
         //    err: err, 
               log: 'getSeason middleware Error',  
               status: 400,
               message: {err: 'error in getSeason middlware'}
-       }));
+       })));
 }
 
 
@@ -63,7 +86,7 @@ tournamentController.getTournament = (req, res, next) => {
 fetch(TournamentIdApi,{
     method: 'GET',
     headers: {
-        'X-API-KEY': '74708e84c6d243bc832af07d61be8d8d',
+        'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
         'Content-type': 'application/json'
     }
 })
@@ -92,7 +115,7 @@ tournamentController.getLeaderboard = (req, res, next) => {
     fetch(leaderboardApi,{
         method: 'GET',
         headers: {
-            'X-API-KEY': '74708e84c6d243bc832af07d61be8d8d',
+            'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
             'Content-type': 'application/json'
         },
         // body: JSON.stringify(data)
@@ -115,10 +138,10 @@ tournamentController.getLeaderboard = (req, res, next) => {
 
 //controller error handler
 const createErr = (errInfo) => {
-    const { method, type, err } = errInfo; 
+    const { log, status, message } = errInfo; 
     return {
-        log: `tournamentController.${getTournament}: ${type} ERROR: ${typeof err === 'object' ? JSON.stringify(err) : err}`, 
-        message: { err: `tournamentController.${getTournament}. ERROR: check console log for more details`}
+        log: `${log, status}`, 
+        message: { err: `${message}`}
     }
 }
 

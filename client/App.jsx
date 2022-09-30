@@ -37,7 +37,7 @@ export default class App extends Component {
         return (
             <div>
                 <main>
-                    <h1> Test </h1>
+                   <h1> gimme</h1>
                     {/* <LeaderBoard/> */}
                 </main>
            </div>
