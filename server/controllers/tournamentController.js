@@ -1,6 +1,8 @@
 const fs = require('fs/promises'); 
 const path = require('path'); 
 const dateFunctionController = require('./dateFunctionController.js');
+const fetch = (...args) =>
+	import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 
 let seasonId; 
@@ -51,10 +53,10 @@ const tournamentController = {};
 
 
 //middleware to access season: 
-tournamentController.getSeason = (req, res, next) => {
+tournamentController.getSeason = async (req, res, next) => {
    const { SeasonId } = req.body; 
     console.log('getSeason')
-    fetch(currentSeasonApi,{
+    fetch(currentSeasonApi, {
         method: 'GET',
         headers: {
             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
@@ -62,21 +64,41 @@ tournamentController.getSeason = (req, res, next) => {
             'Content-type': 'application/json'
         }
 
-    }) 
+}) 
+
+    // const response = await fetch('https://api.sportsdata.io/golf/v2/json/CurrentSeason');
+    // console.log(response);
+    // return response;
+  
+// try {
+// 	const res = await fetch(currentSeasonApi, {
+//                 method: 'GET',
+//                 headers: {
+//                     'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
+//                     'Accept': 'application/json', 
+//                     'Content-type': 'application/json'
+//                 }});
+// 	const json = await res.json();
+// 	console.log(json);
+// } catch (err) {
+// 	console.log(err);
+// }
     .then((data) => data.json())
     .then((data) => {
-        res.locals.season = data.SeasonID
-        console.log(res.locals.season);
-        next(); 
+        console.log(data)
+        // res.locals.season = data.SeasonId
+        // console.log(res.locals.season);
+        // next(); 
     })
     .catch(err => next(createErr({
         //    method: 'getTournament', 
         //    type: 'when reading file', 
         //    err: err, 
               log: 'getSeason middleware Error',  
-              status: 400,
+              status: 500,
               message: {err: 'error in getSeason middlware'}
        })));
+//        console.log(' 2nd getSeason')
 }
 
 
