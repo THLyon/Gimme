@@ -100,15 +100,22 @@ tournamentController.getLeaderboard = (req, res, next) => {
     })
     .then((data) => data.json())
     .then((data) => {
-        console.log(data)
+        // console.log(data)
         const leaders = []; 
-        for(let i = 0; i < data.Tournament.Players.length; i++){
-            if(i <= 10){
-                leaders.push(data.Tournament.Players[i])
-            }
+        // for(let i = 0; i < data.Tournament.Players.length; i++){
+        //     if(i <= 10){
+        //         leaders.push(data.Tournament.Players[i])
+        //     }
+        //  }
+         let i = 0; 
+         while(i < 10){
+            leaders.push(data.Players[i].Name)
+            i++
          }
          console.log(leaders)
+         console.log(leaders.length)
          res.locals.leaders = leaders
+         next();
     })
     .catch(err => createErr({
               log: 'getLeaderboard middleware Error', 

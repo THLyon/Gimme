@@ -1,47 +1,35 @@
 import React, { Component } from 'react'; 
-// import Leaderboard from './Components/Leaderboard.jsx'; 
-import { Route }  from 'react-router-dom';
+import Leaderboard from './Components/Leaderboard.jsx'; 
+import {BrowserRouter, Route, Routes }  from 'react-router-dom';
 import './styling/styles.css';
 
 
-export default class App extends Component {
-   constructor(props){
-        super(props); 
+export default function App() {
+//    constructor(props){
+//         super(props); 
         
-        // this.state = {
-        //     tournament: { 
-        //         tournamentName: [],
-        //         venue: [],
-        //         Location: [], 
-        //         par: [], 
-        //         yardage: [],
-        //         players: []  
-        //     }, 
-        //     players: {
-        //         name: [], 
-        //         rank: [], 
-        //         shots: []
-        //     }
-        // }
+//         this.state = {
+//             // tournament: { 
+//             //     tournamentName: [],
+//             //     venue: [],
+//             //     Location: [], 
+//             //     par: [], 
+//             //     yardage: [],
+//             //     players: []  
+//             // }, 
+//             players: {
+//                 name: [], 
+//                 rank: [], 
+//                 shots: []
+//             }
+//         }
+//     }
+    return (
+        <BrowserRouter>
+            <Routes>
+                <Route path="/gimme" element={<Leaderboard />} />
+                {/* <Route path="/documents" element={<Documents />} /> */}
+            </Routes>
+        </BrowserRouter>
+        )
     }
-
-    componentDidMount(){
-        // fetch('/api/')
-        //     .then(res => res.json())
-        //     .then((data) => {
-
-        //     })
-    }
-
-    render(){
-        return (
-            <div>
-                <main>
-                   <h1> gimme</h1>
-                    {/* <LeaderBoard/> */}
-                </main>
-           </div>
-        );
-    }
-}
-
