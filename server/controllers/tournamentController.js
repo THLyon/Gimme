@@ -1,41 +1,20 @@
 const fs = require('fs/promises'); 
 const path = require('path'); 
-const dateFunctionController = require('./dateFunctionController.js');
 const fetch = (...args) =>
 	import('node-fetch').then(({default: fetch}) => fetch(...args));
-
-
-let seasonId; 
-
-let tournamentId;
-
-//output is a string 
-//if string.length - 2 + string.length - 1 is >= startdate.length -2 + startDate.length - 1 &&  string.length - 2 + string.length - 1 is <= endDate.length -2 + enddate.length - 1
-    //return tournamentid
-
-
-
 
 
 //api to access current season
 const currentSeasonApi = `https://api.sportsdata.io/golf/v2/json/CurrentSeason`;
 
 //api to access tournaments via season 
-const TournamentIdApi = `https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`
+//const TournamentIdApi = `https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`
 
 //api to access leaderboard of a tournament
-const leaderboardApi = `https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`;
+//const leaderboardApi = `https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`;
 
 //site wide api key (https://sportsdata.io/developers/api-documentation/golf)
 const apiKey = '74708e84c6d243bc832af07d61be8d8d';
-
-//error handler?
-
-//middleware fetching tournament id based on date; 
-    //pass in tournament id based on date
-
-
-
 
 function currentDate(date, num = 0) {
     let d = new Date(date),
@@ -46,7 +25,7 @@ function currentDate(date, num = 0) {
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
 
-    return [year, month, day].join('-');
+    return ([year, month, day].join('-')+ 'T00:00:00');
 };
 
 const tournamentController = {}; 
@@ -54,8 +33,6 @@ const tournamentController = {};
 
 //middleware to access season: 
 tournamentController.getSeason = async (req, res, next) => {
-   const { SeasonId } = req.body; 
-    console.log('getSeason')
     fetch(currentSeasonApi, {
         method: 'GET',
         headers: {
@@ -63,67 +40,45 @@ tournamentController.getSeason = async (req, res, next) => {
             'Accept': 'application/json', 
             'Content-type': 'application/json'
         }
-
 }) 
-
-    // const response = await fetch('https://api.sportsdata.io/golf/v2/json/CurrentSeason');
-    // console.log(response);
-    // return response;
-  
-// try {
-// 	const res = await fetch(currentSeasonApi, {
-//                 method: 'GET',
-//                 headers: {
-//                     'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-//                     'Accept': 'application/json', 
-//                     'Content-type': 'application/json'
-//                 }});
-// 	const json = await res.json();
-// 	console.log(json);
-// } catch (err) {
-// 	console.log(err);
-// }
     .then((data) => data.json())
     .then((data) => {
-        console.log(data)
-        // res.locals.season = data.SeasonId
-        // console.log(res.locals.season);
-        // next(); 
+        res.locals.season = data.SeasonID
+        console.log(data.SeasonID);
+        seasonId = data.SeasonID; 
+        next(); 
     })
-    .catch(err => next(createErr({
-        //    method: 'getTournament', 
-        //    type: 'when reading file', 
-        //    err: err, 
+    .catch(err => next(createErr({ 
               log: 'getSeason middleware Error',  
               status: 500,
               message: {err: 'error in getSeason middlware'}
        })));
-//        console.log(' 2nd getSeason')
 }
 
 
 //middleware to access tournament:
 tournamentController.getTournament = (req, res, next) => {
-  seasonId = res.locals.season;
-fetch(TournamentIdApi,{
-    method: 'GET',
-    headers: {
-        'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-        'Content-type': 'application/json'
-    }
+  let seasonId = res.locals.season
+    fetch(`https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`,{
+        method: 'GET',
+        headers: {
+            'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
+        }
 })
    .then((data) => data.json())
    .then((data) => {
-    //  if(data.date === new Date.now()){
-    //     res.locals.tournaments = data.date; 
-    //  }
-       res.locals.tournaments = data; 
-       console.log(res.locals.tournaments)
+    for(let i = 0; i < data.length; i++){
+        if(data[i].hasOwnProperty('StartDate') || data[i].hasOwnProperty('EndDate')){
+            if(data[i].StartDate === currentDate(Date(), 0) || data[i].StartDate === currentDate(Date(), 1) || data[i].StartDate === currentDate(Date(), 2) || data[i].StartDate === currentDate(Date(), 3) || data[i].StartDate === currentDate(Date(), 4) || data[i].EndDate === currentDate(Date(), 0) || data[i].EndDate === currentDate(Date(), 1) || data[i].EndDate === currentDate(Date(), 2) || data[i].EndDate === currentDate(Date(), 3) || data[i].EndDate === currentDate(Date(), 4)){
+                res.locals.tournament = data[i].TournamentID;
+                console.log(res.locals.tournament)
+        }
+     }
+    }
    })
    .catch(err => createErr({
-    //    method: 'getTournament', 
-    //    type: 'when reading file', 
-    //    err: err, 
           log: 'getTournament middleware Error', 
           status: 400,
           message: {err: 'error in getTournament middlware'}
@@ -133,24 +88,28 @@ fetch(TournamentIdApi,{
 
 //middleware to access leaderboard
 tournamentController.getLeaderboard = (req, res, next) => {
-    //const leaderboardData = req.params.leaderboardData; 
-    fetch(leaderboardApi,{
+    let tournamentId = res.locals.tournament;
+    fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
         method: 'GET',
         headers: {
             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
+            'Accept': 'application/json',
             'Content-type': 'application/json'
         },
-        // body: JSON.stringify(data)
     })
     .then((data) => data.json())
     .then((data) => {
-        res.locals.leaderboard = data; 
-
+        console.log(data)
+        const leaders = []; 
+        for(let i = 0; i < data.Tournament.Players.length; i++){
+            if(i <= 10){
+                leaders.push(data.Tournament.Players[i])
+            }
+         }
+         console.log(leaders)
+         res.locals.leaders = leaders
     })
     .catch(err => createErr({
-        //    method: 'getTournament', 
-        //    type: 'when reading file', 
-        //    err: err, 
               log: 'getLeaderboard middleware Error', 
               status: 400,
               message: {err: 'error in getLeaderboard middlware'}
