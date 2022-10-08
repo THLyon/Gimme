@@ -77,6 +77,7 @@ tournamentController.getTournament = (req, res, next) => {
         }
      }
     }
+    next()
    })
    .catch(err => createErr({
           log: 'getTournament middleware Error', 
@@ -95,7 +96,7 @@ tournamentController.getLeaderboard = (req, res, next) => {
             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
             'Accept': 'application/json',
             'Content-type': 'application/json'
-        },
+        }
     })
     .then((data) => data.json())
     .then((data) => {

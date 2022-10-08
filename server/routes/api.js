@@ -9,7 +9,6 @@ const router = express.Router();
 //access leaderboard data here; 
 
 router.get('/gimme', tournamentController.getSeason, tournamentController.getTournament, tournamentController.getLeaderboard, (req, res) => {
-    console.log(res.locals)
     res.status(200).send(res.locals.leaders);  //.tournamentData
 });
 
