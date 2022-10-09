@@ -10,7 +10,6 @@ app.use(express.json());
 // const apiKey = '74708e84c6d243bc832af07d61be8d8d'; 
 
 //require routers
-
 const apiRouter = require('./routes/api'); 
 // const playerRouter = require('.routes/player'); 
 // const tournamentRouter = require('./routes/tournament'); 

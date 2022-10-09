@@ -9,11 +9,3 @@ const root = createRoot(el)
 
 root.render(root); 
 
-// render (
-//     // <BrowserRouter>
-//       <App/>,
-//     // </BrowserRouter>,
-//       document.getElementById('root') 
-// )
-
-// ReactDOM.render(<App />, document.querySelector('root'));

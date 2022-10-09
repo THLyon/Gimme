@@ -1,27 +1,12 @@
-// import React, { Component} from 'react'; 
-// import { render } from 'react-dom';
-// import Player from './Player.jsx'; 
+import React, { Component} from 'react'; 
+import { render } from 'react-dom';
+import { Route } from 'react-router'
 
-// class Leaderboard extends Component {
-//     constructor(props){
-//         super(props);
-//     }
-//     render(){
-//         return (
-//             <div>
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//                 <Player />
-//             </div>
-//         )
-//      }
-// }
+export function Leaderboard() {
+    return (
+        <div>
+           
+        </div>
+    )
+}
 
-// export default Leaderboard; 
