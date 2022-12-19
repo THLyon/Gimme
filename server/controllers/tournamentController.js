@@ -126,13 +126,13 @@ tournamentController.getLeaderboard = (req, res, next) => {
 
 
 //controller error handler
-const createErr = (errInfo) => {
-    const { log, status, message } = errInfo; 
-    return {
-        log: `${log, status}`, 
-        message: { err: `${message}`}
-    }
-}
+// const createErr = (errInfo) => {
+//     const { log, status, message } = errInfo; 
+//     return {
+//         log: `${log, status}`, 
+//         message: { err: `${message}`}
+//     }
+// }
 
 //potential add player file controller here
 

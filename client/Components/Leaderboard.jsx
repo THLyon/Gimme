@@ -2,7 +2,15 @@ import React, { Component} from 'react';
 import { render } from 'react-dom';
 import { Route } from 'react-router'
 
-export function Leaderboard() {
+ const Leaderboard = ({leaderBoard}) => {
+    // const [leaderBoard, setLeaderboard] = useState([]);
+    // console.log(leaderboard)
+    // useEffect(() => {
+    //     fetch('localhost:3000/gimme/api')
+    //         .then(res => res.json())
+    //         .then(players => setLeaderBoard(players))
+    // }, []);
+
     return (
         <div>
            
@@ -10,3 +18,4 @@ export function Leaderboard() {
     )
 }
 
+export default Leaderboard;
