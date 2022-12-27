@@ -18,10 +18,10 @@ const apiRouter = require('./routes/api');
 app.use('/build' , express.static(path.join(__dirname, '../build')));
 
 
-//route handlers
+// //route handlers
 app.use('/api', apiRouter);
-// app.use('/playerRouter', playerRouter); 
-// app.use('/tournamentRouter', tournamentRouter); 
+// // app.use('/playerRouter', playerRouter); 
+// // app.use('/tournamentRouter', tournamentRouter); 
 
 
 app.get('/', (req, res) => {

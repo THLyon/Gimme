@@ -75,6 +75,9 @@ tournamentController.getTournament = (req, res, next) => {
                 res.locals.tournament = data[i].TournamentID;
                 console.log(res.locals.tournament)
         }
+        else if (data[i].StartDate !== currentDate(Date(), 0) && data[i].StartDate !== currentDate(Date(), 1) && data[i].StartDate !== currentDate(Date(), 2) && data[i].StartDate !== currentDate(Date(), 3) && data[i].StartDate !== currentDate(Date(), 4) && data[i].EndDate !== currentDate(Date(), 0) && data[i].EndDate !== currentDate(Date(), 1) && data[i].EndDate !== currentDate(Date(), 2) && data[i].EndDate !== currentDate(Date(), 3) && data[i].EndDate !== currentDate(Date(), 4)){
+            return 'no tournament today';
+        }
      }
     }
     next()
@@ -126,13 +129,13 @@ tournamentController.getLeaderboard = (req, res, next) => {
 
 
 //controller error handler
-// const createErr = (errInfo) => {
-//     const { log, status, message } = errInfo; 
-//     return {
-//         log: `${log, status}`, 
-//         message: { err: `${message}`}
-//     }
-// }
+const createErr = (errInfo) => {
+    const { log, status, message } = errInfo; 
+    return {
+        log: `${log, status}`, 
+        message: { err: `${message}`}
+    }
+}
 
 //potential add player file controller here
 

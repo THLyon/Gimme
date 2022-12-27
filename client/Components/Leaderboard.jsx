@@ -3,6 +3,7 @@ import { render } from 'react-dom';
 import { Route } from 'react-router'
 
  const Leaderboard = ({leaderBoard}) => {
+    const {name, rank, TotalScore} = leaderBoard;
     // const [leaderBoard, setLeaderboard] = useState([]);
     // console.log(leaderboard)
     // useEffect(() => {
@@ -13,7 +14,7 @@ import { Route } from 'react-router'
 
     return (
         <div>
-           
+           {/* <Player/> */}
         </div>
     )
 }
