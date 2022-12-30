@@ -16,11 +16,12 @@ module.exports = {
   mode: "development",
   devServer: {
     host: 'localhost',
-    port: 8080,
+    port: 3000,
     // enable HMR on the devServer
     hot: true,
     // fallback to root for other urls
     historyApiFallback: true,
+    //  disableHostCheck: true,
 
     static: {
       // match the output path
@@ -29,7 +30,10 @@ module.exports = {
       publicPath: '/',
     },
 
-    headers: { 'Access-Control-Allow-Origin': '*' },
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+  },
     /**
      * proxy is required in order to make api calls to
      * express server while using hot-reload webpack server

@@ -19,7 +19,9 @@ app.use('/build' , express.static(path.join(__dirname, '../build')));
 
 
 // //route handlers
-app.use('/api', apiRouter);
+app.use('/api', apiRouter, (req,res) => {
+    return res.status(200).json(res.locals.leaders);
+});
 // // app.use('/playerRouter', playerRouter); 
 // // app.use('/tournamentRouter', tournamentRouter); 
 

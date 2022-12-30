@@ -114,18 +114,19 @@ tournamentController.getLeaderboard = (req, res, next) => {
         //  }
          let i = 0; 
          while(i < 10){
-            leaders.push({'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
+            leaders.push({'Key': i, 'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
             i++
          }
          console.log(leaders)
          console.log(leaders.length)
          res.locals.leaders = leaders
-         next();
+         return next();
     })
     .catch(err => createErr({
               log: 'getLeaderboard middleware Error', 
               status: 400,
-              message: {err: 'error in getLeaderboard middlware'}
+              message: {err: 'error in getLeaderboard middlware'},
+              err: err,
        }));
 }
 

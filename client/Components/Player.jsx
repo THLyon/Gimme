@@ -1,9 +1,9 @@
 import React, { Component} from 'react'; 
-import { render } from 'react-dom';
-import { Route } from 'react-router'
+//import { render } from 'react-dom';
+//import { Route } from 'react-router'
 
- const Player = ({leaderBoard}) => {
-    const {name, rank, TotalScore} = leaderBoard;
+ const Player = ({player}) => {
+    const {Key, Name, Rank, TotalScore} = player;
     // const [leaderBoard, setLeaderboard] = useState([]);
     // console.log(leaderboard)
     // useEffect(() => {
@@ -13,10 +13,11 @@ import { Route } from 'react-router'
     // }, []);
 
     return (
-        <div className='player-div' key={rank}>
-           <h1 alt={`player  ${name}`}> {name} </h1>
-           <p> {rank}</p>
-           <p>{totalScore}</p>
+    
+        <div className='player-div' key={Key}>
+           <h1 alt={`player  ${Name}`}> {Name} </h1>
+           <p> {Rank}</p>
+           <p>{TotalScore}</p>
         </div>
     )
 }
