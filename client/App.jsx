@@ -13,162 +13,16 @@ import './styling/styles.css';
 const App = () => {
     const [leaderBoard, setLeaderboard] = useState([]);
     // console.log(leaderboard)
-  
-
     useEffect(() => {
         fetch('/api/test')
             .then(res => res.json())
             .then(data => setLeaderboard(data))
-        
-        // //api to access current season
-        const currentSeasonApi = `https://api.sportsdata.io/golf/v2/json/CurrentSeason`;
-
-        //api to access tournaments via season 
-        //const TournamentIdApi = `https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`
-
-        //api to access leaderboard of a tournament
-        //const leaderboardApi = `https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`;
-
-        //site wide api key (https://sportsdata.io/developers/api-documentation/golf)
-        const apiKey = '74708e84c6d243bc832af07d61be8d8d';
-
-
-
-        // function currentDate(date, num = 0) {
-        //     let d = new Date(date),
-        //         month = '' + (d.getMonth() + 1),
-        //         day = '' + (d.getDate() + num) ,
-        //         year = d.getFullYear();
-
-        //     if (month.length < 2) month = '0' + month;
-        //     if (day.length < 2) day = '0' + day;
-
-        //     return ([year, month, day].join('-')+ 'T00:00:00');
-        // };
-        // fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/104`,{
-        //         mode: 'no-cors',
-        //         method: 'GET',
-        //         headers: {
-        //             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-        //             'Accept': 'application/json',
-        //             'Content-type': 'application/json',
-        //         }
-        //             })
-        //             .then((data) => data.json())
-        //             .then((data) => {
-        //                 // console.log(data)
-        //                 const leaders = []; 
-        //                 // for(let i = 0; i < data.Tournament.Players.length; i++){
-        //                 //     if(i <= 10){
-        //                 //         leaders.push(data.Tournament.Players[i])
-        //                 //     }
-        //                 //  }
-        //                 let i = 0; 
-        //                 while(i < 10){
-        //                   leaders.push({'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
-        //                   i++
-        //                 }
-        //                 setLeaderboard(leaders);
-        //                 // console.log(leaders)
-        //                 // console.log(leaders.length)
-        //                 // res.locals.leaders = leaders
-        //                 console.log('leaders')
-        //                 // next();
-        //             })
-
-        // //middleware to access season: 
-        //     fetch(currentSeasonApi, {
-        //         method: 'GET',
-        //         headers: {
-        //             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-        //             'Accept': 'application/json', 
-        //             'Content-type': 'application/json'
-        //         }
-        //     }) 
-        //     .then((data) => data.json())
-        //     .then((data) => {
-        //         // res.locals.season = data.SeasonID
-        //         // console.log(data.SeasonID);
-        //         seasonId = data.SeasonID; 
-        //         console.log('seasonID')
-        //         // next(); 
-        //         setLeaderboard(data);
-        //     })
-        //     .then(fetch(`https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`,{
-        //                 method: 'GET',
-        //                 headers: {
-        //                     'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-        //                     'Accept': 'application/json',
-        //                     'Content-type': 'application/json'
-        //                 }
-        //         })
-        //         .then((data) => data.json())
-        //         .then((data) => {
-        //             for(let i = 0; i < data.length; i++){
-        //                 if(data[i].hasOwnProperty('StartDate') || data[i].hasOwnProperty('EndDate')){
-        //                     if(data[i].StartDate === currentDate(Date(), 0) || data[i].StartDate === currentDate(Date(), 1) || data[i].StartDate === currentDate(Date(), 2) || data[i].StartDate === currentDate(Date(), 3) || data[i].StartDate === currentDate(Date(), 4) || data[i].EndDate === currentDate(Date(), 0) || data[i].EndDate === currentDate(Date(), 1) || data[i].EndDate === currentDate(Date(), 2) || data[i].EndDate === currentDate(Date(), 3) || data[i].EndDate === currentDate(Date(), 4)){
-        //                         // res.locals.tournament = data[i].TournamentID;
-        //                         tournamentId = data[i].TournamentID;
-        //                         // console.log(res.locals.tournament)
-        //                 }
-        //             }
-        //             console.log('tournaments')
-        //             }
-        //             // next()
-        //         })
-        //         .then( fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
-        //         method: 'GET',
-        //         headers: {
-        //             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
-        //             'Accept': 'application/json',
-        //             'Content-type': 'application/json'
-        //         }
-        //             })
-        //             .then((data) => data.json())
-        //             .then((data) => {
-        //                 // console.log(data)
-        //                 const leaders = []; 
-        //                 // for(let i = 0; i < data.Tournament.Players.length; i++){
-        //                 //     if(i <= 10){
-        //                 //         leaders.push(data.Tournament.Players[i])
-        //                 //     }
-        //                 //  }
-        //                 let i = 0; 
-        //                 while(i < 10){
-        //                   leaders.push({'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
-        //                   i++
-        //                 }
-        //                 // console.log(leaders)
-        //                 // console.log(leaders.length)
-        //                 res.locals.leaders = leaders
-        //                 setLeaderboard(leaders);
-        //                 console.log('leaders')
-        //                 next();
-        //             })
-        //             .catch(err => createErr({
-        //                     log: 'getLeaderboard middleware Error', 
-        //                     status: 400,
-        //                     message: {err: 'error in getLeaderboard middlware'}
-        //     })))
-        //         .catch(err => createErr({
-        //                 log: 'getTournament middleware Error', 
-        //                 status: 400,
-        //                 message: {err: 'error in getTournament middlware'}
-        //         })))
-        //     .catch(err => next(createErr({ 
-        //             log: 'getSeason middleware Error',  
-        //             status: 500,
-        //             message: {err: 'error in getSeason middlware'}
-        //     })));
-
     }, []);
 
 
     return (
         <div className='App'>
-            <Leaderboard leaderBoard = {leaderBoard}/>
-            console.log(leaderBoard);
-            testing
+            <Leaderboard leaderBoard = {leaderBoard} />
         </div>
         )
     };
