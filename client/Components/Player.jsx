@@ -1,6 +1,7 @@
 import React, { Component} from 'react'; 
 //import { render } from 'react-dom';
 //import { Route } from 'react-router'
+import  '../styling/Player.styles.css';
 
  const Player = ({player}) => {
     const {Key, Name, Rank, TotalScore} = player;
