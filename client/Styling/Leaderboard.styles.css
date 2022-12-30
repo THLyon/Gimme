@@ -1,25 +1,26 @@
   .leaderboard-div {
-    width: 85vw;
+    width: 40vw;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-gap: 20px;
+    grid-template-columns: 1fr ;
+    grid-gap: 2px;
   }
 
   .leaderboard-container {
     display: flex;
     flex-direction: column;
+    text-align: center;
     background-color: #95dada;
     border: 1px solid grey;
     border-radius: 5px;
-    padding: 25px;
+    padding: 1px;
     cursor: pointer;
     -moz-osx-font-smoothing: grayscale;
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
   }
-  
+/*   
   .leaderboard-div:hover {
     transform: scale(1.05);
-  }
+  } */

@@ -4,13 +4,14 @@ import React, { Component} from 'react';
 import  '../styling/Player.styles.css';
 
  const Player = ({player}) => {
-    const {Key, Name, Rank, TotalScore} = player;
+    const {Position, Name, Rank, TotalScore} = player;
     return (
         // key={Key}
         <div className='player-div'>
-           <h1 alt={`player  ${Name}`}> {Name} </h1>
-           <p> {Rank}</p>
-           <p>{TotalScore}</p>
+           <p className = 'position-div'> {Position + 1 } </p>
+           <h1 alt={`player  ${Name}`} className = 'name-div'> {Name} </h1>
+           {/* <p className = 'rank-div'> {Rank}</p> */}
+           <p className = 'score-div'>{TotalScore}</p>
         </div>
     )
 }

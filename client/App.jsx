@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react'; 
 import Leaderboard from './Components/Leaderboard';
+import Header from './Components/Header';
 //import Player from './Components/Player';
 import './styling/styles.css';
 
@@ -22,6 +23,7 @@ const App = () => {
 
     return (
         <div className='App'>
+            <Header />
             <Leaderboard leaderBoard = {leaderBoard} />
         </div>
         )

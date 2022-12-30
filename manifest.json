@@ -1,0 +1,33 @@
+{
+    "name": "Gimme",
+    "description": "PGA Scorecard pop-up chrome extension",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "devtools_page": "./client/index.html",
+    "content_scripts": [
+      {
+        "matches": ["http://*/*", "https://*/*"],
+        "js": ["./client/index.js"],
+        "run_at": "document_start"
+      }
+    ],
+    "permissions": [
+      "tabs",
+      "activeTab",
+      "debugger",
+      "scripting",
+      "storage"
+    ],
+    "host_permissions": ["file:///*", "http://*/*", "https://*/*"],
+    "background": {
+      "type": "module",
+      "persist":true
+    },
+    "action": {
+      "default_popup": "./client/index.html",
+      "default_title": "Gimme"
+    },
+    "content_security_policy": {
+      "extension_pages": "default-src 'self'"
+    } 
+  }

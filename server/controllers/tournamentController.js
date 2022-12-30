@@ -113,9 +113,16 @@ tournamentController.getLeaderboard = (req, res, next) => {
         //     }
         //  }
          let i = 0; 
+        //  let name = nameFunc(data.Players[i].Name)
          while(i < 10){
-            leaders.push({'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
-            i++
+           
+        //    function nameFunc(player){
+        //         for(let j = 0; j < player.length; j++){
+        //             if(j === ' ') return `${player[j] + '.' + ' ' + player[j+1]}`
+        //         }
+        //     };
+            leaders.push({'Position': i, 'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
+            i++ 
          }
          console.log(leaders)
          console.log(leaders.length)
