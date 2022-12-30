@@ -15,9 +15,10 @@ const App = () => {
     console.log(leaderboard)
 
     useEffect(() => {
-        fetch('http://localhost:3000/gimme/api')
+        fetch('/gimme/test')
             .then(res => res.json())
-            .then(players => setLeaderBoard(players))
+            .then(players => setLeaderboard(players))
+    }, []);
         
         // //api to access current season
         // const currentSeasonApi = `https://api.sportsdata.io/golf/v2/json/CurrentSeason`;
@@ -130,7 +131,7 @@ const App = () => {
         //             message: {err: 'error in getSeason middlware'}
         //     })));
 
-    }, []);
+
 
 
     return (

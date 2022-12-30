@@ -20,5 +20,9 @@ router.get('/season', tournamentController.getSeason, (req, res) => {
     return res.status(200).json(res.locals.season);
 })
 
+router.get('/test', tournamentController.getLeaderboard, (req, res) => {
+    return res.status(200).json(res.locals.leaders)
+})
+
 
 module.exports= router; 

@@ -14,7 +14,7 @@ import { Route } from 'react-router'
 
     return (
         <div>
-           {/* <Player/> */}
+           <Player/>
         </div>
     )
 }

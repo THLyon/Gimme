@@ -93,7 +93,9 @@ tournamentController.getTournament = (req, res, next) => {
 //middleware to access leaderboard
 tournamentController.getLeaderboard = (req, res, next) => {
     let tournamentId = res.locals.tournament;
-    fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
+    console.log('leaderboard')
+    // fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
+        fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/104`,{
         method: 'GET',
         headers: {
             'Ocp-Apim-Subscription-Key': '74708e84c6d243bc832af07d61be8d8d',
@@ -112,7 +114,7 @@ tournamentController.getLeaderboard = (req, res, next) => {
         //  }
          let i = 0; 
          while(i < 10){
-            leaders.push(data.Players[i].Name)
+            leaders.push({'Name': data.Players[i].Name, 'Rank': data.Players[i].Rank, 'TotalScore': Math.ceil((data.Players[i].TotalScore + 288)/4)})
             i++
          }
          console.log(leaders)
