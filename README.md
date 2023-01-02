@@ -1,4 +1,6 @@
 # Gimme
 
 
-Gimme is a reactive PGA scorecard Chrome extension. The application displays an up-to-date leaderboard of the current PGA tournament, favorite players, and statistics of player statistics and golf tournament data. 
+Gimme is a homepage for PGA essentialls, featuring scoreboards, tournament details, player statistics and more. Users can keep up to date on all things PGA in a streamlined and customizable modular homepage. 
+
+Gimme Chrome extension provides a clean and expedited viewing of all aspects of the website in a popup for quick display and checkups of tournament leaderboard. 
