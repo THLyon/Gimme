@@ -1,6 +1,8 @@
 import {useState, useEffect} from 'react'; 
 import Leaderboard from './Components/Leaderboard';
 import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Tournament from './Components/Tournament';
 //import Player from './Components/Player';
 import './styling/styles.css';
 
@@ -13,6 +15,8 @@ import './styling/styles.css';
     //3: TBD
 const App = () => {
     const [leaderBoard, setLeaderboard] = useState([]);
+    const [tournament, setTournament] = useState({});
+    const [favorites, SetFavorites] = useState([]); 
     // console.log(leaderboard)
     useEffect(() => {
         fetch('/api/test')
@@ -20,11 +24,20 @@ const App = () => {
             .then(data => setLeaderboard(data))
     }, []);
 
+    useEffect(() => {
+        fetch('/api/tournament')
+            .then(res => res.json())
+            .then(data => setTournament(data))
+    }, {});
+
+    
 
     return (
         <div className='App'>
             <Header />
             <Leaderboard leaderBoard = {leaderBoard} />
+            <Tournament tournament = {tournament} />
+            <Footer />
         </div>
         )
     };
