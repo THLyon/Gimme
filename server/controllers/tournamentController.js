@@ -45,7 +45,7 @@ tournamentController.getSeason = async (req, res, next) => {
     .then((data) => {
         res.locals.season = data.SeasonID
         console.log(data.SeasonID);
-        seasonId = data.SeasonID; 
+        //seasonId = data.SeasonID; 
         next(); 
     })
     .catch(err => next(createErr({ 
