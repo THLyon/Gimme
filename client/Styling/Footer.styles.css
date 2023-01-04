@@ -1,0 +1,8 @@
+.footer-div{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    height: 40px;
+    background-color: rgb(56, 89, 56);
+}

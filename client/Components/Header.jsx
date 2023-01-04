@@ -1,4 +1,4 @@
-import React, { Component} from 'react'; 
+import React from 'react'; 
 import  '../styling/Header.styles.css';
 
 const Header = () => {
@@ -6,13 +6,13 @@ const Header = () => {
     return(
         <div className = 'header-div'>
             <div className = 'menu-div'> 
-                <button className = 'menu-button'> Menu </button>
+                <button id='menu-button'> Menu </button>
             </div>
             <div className = 'name-div'>
-                <h1 className = 'header-name'> Gimme </h1>
+                <h1 id='header-name'> Gimme </h1>
             </div>
-            <div className = 'name-div'>
-                <button className = 'sign-in-button'> Sign In </button>
+            <div className = 'sign-in-div'>
+                <button id='sign-in-button'> Sign In </button>
             </div>
         </div>
     )

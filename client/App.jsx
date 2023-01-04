@@ -34,10 +34,12 @@ const App = () => {
 
     return (
         <div className='App'>
-            <Header />
-            <Leaderboard leaderBoard = {leaderBoard} />
-            <Tournament tournament = {tournament} />
-            <Footer />
+                <Header />
+                {/* <div className='App-Int'> */}
+                    <Leaderboard leaderBoard = {leaderBoard} />
+                    <Tournament tournament = {tournament} />
+                {/* </div> */}
+                <Footer />
         </div>
         )
     };

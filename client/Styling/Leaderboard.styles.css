@@ -1,12 +1,15 @@
   .leaderboard-div {
+    margin:15px;
     width: 40vw;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr ;
     grid-gap: 2px;
+    grid-area: main;
+    justify-content: right; 
   }
 
-  .leaderboard-container {
+  /* .leaderboard-container {
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -19,7 +22,7 @@
     backface-visibility: hidden;
     transform: translateZ(0);
     transition: transform 0.25s ease-out;
-  }
+  } */
 /*   
   .leaderboard-div:hover {
     transform: scale(1.05);

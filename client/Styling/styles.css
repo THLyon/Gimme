@@ -1,14 +1,18 @@
-body {
-    background-color: rgb(111, 144, 104);
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    /* border: 6px solid grey; */
-    border-radius: 5px;
-    padding: 1px;
-    cursor: pointer;
-    -moz-osx-font-smoothing: grayscale;
-    backface-visibility: hidden;
-    transform: translateZ(0);
-    transition: transform 0.25s ease-out;
+html{
+    background-color: rgb(125, 173, 115);
+   height: 100%;
+   width: 100%; 
+   padding: 0px !important;
 }
+
+.App{
+    display: grid; 
+    grid-template-rows:  1fr ; 
+    grid-template-columns: 1fr 1fr; 
+    grid-area: 
+    "'Tournment' 'Leaderboard'";
+    margin: 90px; 
+}
+
+
+
