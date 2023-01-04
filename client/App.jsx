@@ -35,10 +35,8 @@ const App = () => {
     return (
         <div className='App'>
                 <Header />
-                {/* <div className='App-Int'> */}
-                    <Leaderboard leaderBoard = {leaderBoard} />
-                    <Tournament tournament = {tournament} />
-                {/* </div> */}
+                <Leaderboard leaderBoard = {leaderBoard} />
+                <Tournament tournament = {tournament} />
                 <Footer />
         </div>
         )

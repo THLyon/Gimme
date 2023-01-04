@@ -1,13 +1,38 @@
-  .leaderboard-div {
+/* 
+.leaderboard-div{
+  grid-area: Leaderboard;
+  margin: 30px; 
+  border: 1px solid rgb(31, 31, 31);
+  border-radius: 12px;
+  padding: 20px;
+  background-color: rgb(45, 88, 45)
+}
+
+
+.leaders-div {
     margin:15px;
     width: 40vw;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr ;
-    grid-gap: 2px;
+    grid-gap: 0px;
     grid-area: main;
     justify-content: right; 
-  }
+    
+  } */
+
+
+.leaderboard-div {
+  margin:15px;
+  width: 40vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 2px;
+  grid-area: main;
+  justify-content: right; 
+}
+
 
   /* .leaderboard-container {
     display: flex;
