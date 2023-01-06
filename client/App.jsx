@@ -35,8 +35,9 @@ const App = () => {
     return (
         <div className='App'>
                 <Header />
-                <Leaderboard leaderBoard = {leaderBoard} />
                 <Tournament tournament = {tournament} />
+                <Leaderboard leaderBoard = {leaderBoard} />
+                
                 <Footer />
         </div>
         )

@@ -10,11 +10,12 @@
     background-color: rgb(56, 89, 56);
     border: 1px solid rgb(31, 31, 31);
      line-height: 10px;
+     align-items: center;
   }
 
 .name-div{
   /* position: relative; */
-  justify-content: center;
+  justify-content: space-around;
   align-items: center; 
   padding: 0px;
   
@@ -22,6 +23,8 @@
   #header-name{
     font-size: 30px;
     float: center;
+    align-items: center;
+    justify-content: space-around;
   }
 
   .sign-in-div{

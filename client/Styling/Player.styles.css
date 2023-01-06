@@ -1,7 +1,7 @@
 .player-div {
     display: flex;
     flex-direction: horizontal;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     height: 30px;
     background-color: #c8c8c8;
@@ -18,19 +18,19 @@
     font-size: 20px;
      /* border: 1px solid rgb(31, 31, 31);  */
     border-radius: 5px;
-    /* padding: 15px; */
-    padding-left: 30px;
+    padding: 15px;
+    /* padding-left: 30px; */
   }
   .name-div {
-    display: flex;
+    padding-left: 50px;
     justify-content: left;
     font-family: 'Roboto', sans-serif;
     font-size: 30px;
     width: 350px;
-    align-items: center;
+    align-items: left;
      /* border: 1px solid rgb(31, 31, 31);  */
     border-radius: 5px;
-    padding-left: 20px;
+    /* padding-left: 20px; */
   }
   .score-div {
     display: flex;
@@ -41,7 +41,8 @@
      /* border: 1px solid rgb(31, 31, 31);  */
     border-radius: 5px;
     /* padding: 15px; */
-    padding-right: 40px;
+    padding: 30px;
+
   }
   
   /* .player-div:hover {

@@ -1,37 +1,45 @@
-/* 
-.leaderboard-div{
-  grid-area: Leaderboard;
-  margin: 30px; 
-  border: 1px solid rgb(31, 31, 31);
-  border-radius: 12px;
-  padding: 20px;
-  background-color: rgb(45, 88, 45)
+.leaderboard-div {
+  width: 50vw;
+  justify-content: space-around; 
+  border: 2px solid black;
+  background-color: rgb(56, 89, 56);
+  border-radius: 10px;
 }
 
+.leaderboard-header{
+  width: 20vw;
+  align-items: left;
+  background-color: rgb(125, 173, 115);
+  border: 2px solid black; 
+  margin:15px;
+  width: auto;
+  height: auto; 
+  border-radius: 10px;
+}
 
-.leaders-div {
-    margin:15px;
-    width: 40vw;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr ;
-    grid-gap: 0px;
-    grid-area: main;
-    justify-content: right; 
-    
-  } */
-
-
-.leaderboard-div {
+.players-div{
   margin:15px;
   width: 40vw;
-  margin: 0 auto;
+  margin: 10 auto;
   display: grid;
   grid-template-columns: 1fr ;
   grid-gap: 2px;
   grid-area: main;
   justify-content: right; 
 }
+
+.Players-search-box{
+  margin: 15px;
+  width: 200px; 
+  background-color: rgb(89, 125, 89);
+  border: 2px solid black;
+  color: black;
+}
+
+::placeholder { /* Most modern browsers support this now. */
+  color:    rgb(210, 210, 210);
+}
+
 
 
   /* .leaderboard-container {

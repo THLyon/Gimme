@@ -1,13 +1,14 @@
 import React from 'react'; 
-
+import '../styling/Tournament.styles.css'
 
 const Tournament = ({tournament}) => {
     const { Name, Location, City, State, Purse, Par, Yards } = tournament
     return (
-        <div class = 'tournament-module'>
-            <div class = 'tournament-name'> {Name} </div>
-            <div class = 'tournament-location'> {Location} {City} {State} </div>
-            <div class = 'tournament-details'> {Purse} {Par} {Yards} </div>
+        <div className='tournament-module'>
+        test
+            <div className='tournament-name'> {Name} </div>
+            <div className='tournament-location'> {Location} {City} {State} </div>
+            <div className='tournament-details'> {Purse} {Par} {Yards} </div>
         </div>
     )
 };

@@ -1,4 +1,3 @@
 .tournament-module{
-    display: grid;
-    grid-area: sd; 
+    border: 2px solid black;  
 }
