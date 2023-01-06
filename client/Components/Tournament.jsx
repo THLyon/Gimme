@@ -2,6 +2,7 @@ import React from 'react';
 import '../styling/Tournament.styles.css'
 
 const Tournament = ({tournament}) => {
+
     const { Name, Location, City, State, Purse, Par, Yards } = tournament
     return (
         <div className='tournament-module'>

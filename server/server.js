@@ -20,16 +20,19 @@ app.use('/build' , express.static(path.join(__dirname, '../build')));
 
 // //route handlers
 app.use('/api', apiRouter, (req,res) => {
-    return res.status(200).json(res.locals.leaders);
+    return res.status(200).json(res.locals);
 });
-// // app.use('/playerRouter', playerRouter); 
-// // app.use('/tournamentRouter', tournamentRouter); 
 
+// app.use('/api/details', apiRouter, (req, res) => {
+//     return res.status(200).json(res.locals.details);
+// })
 
 app.get('/', (req, res) => {
    // return res.status(200).sendFile(path.join(__dirname, './build/index.html'));
     return res.status(200).sendFile(path.join(__dirname, '../client/index.html'));
 });
+
+
 
 //Local error handler
 app.use((req, res) => res.status(404)); 

@@ -15,8 +15,8 @@ import './styling/styles.css';
     //3: TBD
 const App = () => {
     const [leaderBoard, setLeaderboard] = useState([]);
-    const [tournament, setTournament] = useState({});
     const [favorites, SetFavorites] = useState([]); 
+    const [tournament, setTournament] = useState({});
     // console.log(leaderboard)
     useEffect(() => {
         fetch('/api/test')
@@ -25,19 +25,16 @@ const App = () => {
     }, []);
 
     useEffect(() => {
-        fetch('/api/tournament')
+        fetch('/api/details')
             .then(res => res.json())
             .then(data => setTournament(data))
     }, {});
-
-    
 
     return (
         <div className='App'>
                 <Header />
                 <Tournament tournament = {tournament} />
                 <Leaderboard leaderBoard = {leaderBoard} />
-                
                 <Footer />
         </div>
         )

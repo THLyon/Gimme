@@ -1,3 +1,36 @@
 .tournament-module{
     border: 2px solid black;  
 }
+
+.tournament-name{
+   margin:15px;
+  width: 40vw;
+  margin: 10 auto;
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 2px;
+  grid-area: main;
+  justify-content: right;  
+}
+
+.tournament-location{
+margin:15px;
+  width: 40vw;
+  margin: 10 auto;
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 2px;
+  grid-area: main;
+  justify-content: right; 
+}
+
+.tournament-details{
+margin:15px;
+  width: 40vw;
+  margin: 10 auto;
+  display: grid;
+  grid-template-columns: 1fr ;
+  grid-gap: 2px;
+  grid-area: main;
+  justify-content: right; 
+}
