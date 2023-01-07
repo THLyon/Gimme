@@ -103,14 +103,14 @@ courseController.getCourse = (req, res, next) => {
     console.log(data)
     console.log('details')
     .then((data) => {
-        const details = {
+        const details = [{
             "Name": data.Tournament.Name,
             "Venue": data.Tournament.Venue,
             "Location": data.Tournament.Location,
             "Purse": data.Tournament.Purse, 
             "Par": data.Tournament.Par,
             "Yards": data.Tournament.Yards,
-        };
+        }];
         res.locals.details = details;
         console.log(res.locals.details);
          return next();
