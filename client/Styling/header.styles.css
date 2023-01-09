@@ -7,7 +7,7 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr;
     max-height: 50px;
-    background-color: rgb(56, 89, 56);
+    background-color: rgb(37, 59, 37);
     border: 1px solid rgb(31, 31, 31);
     line-height: 10px;
     align-items: center;
@@ -17,6 +17,8 @@
   /* position: relative; */
   justify-content: center;
   align-items: center; 
+  text-align: center;
+  float: center;
   padding: 0px;
   
 }
@@ -25,6 +27,7 @@
     float: center;
     align-items: center;
     justify-content: space-around;
+    text-align: center;
   }
 
   .sign-in-div{

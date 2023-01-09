@@ -1,5 +1,5 @@
 html{
-    background-color: rgb(125, 173, 115);
+    background-color:  rgb(89, 125, 89);
    height: 100%;
    width: 100%; 
    padding: 0px !important;
@@ -12,7 +12,7 @@ html{
     grid-template-columns: 1fr 1fr; 
     grid-area: 
     "Tournment" "Leaderboard"
-    "Feed" "Leaderboard";
+    "feed" ;
     margin: 90px; 
 }
 

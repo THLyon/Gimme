@@ -3,6 +3,7 @@ import Leaderboard from './Components/Leaderboard';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Tournament from './Components/Tournament';
+import Feed from './Components/Feed'
 //import Player from './Components/Player';
 import './styling/styles.css';
 
@@ -35,6 +36,7 @@ const App = () => {
                 <Header />
                 <Tournament tournament = {tournament} />
                 <Leaderboard leaderBoard = {leaderBoard} />
+                <Feed />
                 <Footer />
         </div>
         )
