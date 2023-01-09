@@ -1,6 +1,6 @@
 .feed-div{
     width: 30vw;
-    height: 17vw;
+    height: 20vw;
     justify-content: space-around; 
     /* border: 2px solid black; */
     background-color:  rgb(56, 89, 56);
@@ -11,5 +11,5 @@
 
   .twitter-timeline{
     width: 30vw;
-    height: 15vw;
+    height: 25vw;
   }

@@ -8,13 +8,13 @@ html{
 
 .App{
     display: grid; 
-    grid-template-rows: 1fr 1fr; 
+    grid-template-rows: auto; 
     grid-template-columns: 1fr 1fr; 
     grid-area: 
     "Tournment" "Leaderboard"
-    "feed" ;
+    "feed"  "Leaderboard";
     margin: 90px; 
-    margin-top: 220px;
+    margin-top: 100px;
 }
 
 
