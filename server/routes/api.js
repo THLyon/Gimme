@@ -14,7 +14,7 @@ router.get('/gimme', tournamentController.getSeason, tournamentController.getTou
 });
 
 // router.get('/details', courseController.getSeason, courseController.getTournament, courseController.getCourse, (req, res) => {
-    router.get('/details', courseController.getCourse, (req, res) => {
+router.get('/details', courseController.getCourse, (req, res) => {
     return res.status(200).send(res.locals.details); 
 })
 
