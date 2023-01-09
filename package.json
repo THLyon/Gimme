@@ -66,6 +66,7 @@
     "react-router": "^6.4.1",
     "react-router-dom": "^6.4.1",
     "react-twitter-embed": "^4.0.4",
+    "react-twitter-widgets": "^1.11.0",
     "safe-buffer": "^5.2.1",
     "safer-buffer": "^2.1.2",
     "send": "^0.18.0",
