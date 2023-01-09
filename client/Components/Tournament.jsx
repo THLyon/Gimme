@@ -6,10 +6,11 @@ const Tournament = ({tournament}) => {
     const { Name, Location, Venue, Purse, Par, Yards } = tournament
     return (
         <div className='tournament-module'>
-        test
-            <div className='tournament-name'> {Name} </div>
-            <div className='tournament-location'> {Location} {Venue} </div>
-            <div className='tournament-details'> {Purse} {Par} {Yards} </div>
+            <div className = 'tournament-header'>
+                <div className='tournament-name'> <b>Name:</b> {Name} </div>
+                <div className='tournament-location'> <b>Location :</b> {Location} <b>Venue:</b> {Venue} </div>
+                <div className='tournament-details'> <b>Purse: </b>{Purse} <b>Par: </b>{Par} <b>Yardage:</b> {Yards} </div>
+            </div>
         </div>
     )
 };
