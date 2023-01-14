@@ -9,4 +9,6 @@ const Favorites = ({players}) => {
             })}
         </div>
     )
-}
+};
+
+export default Favorites; 

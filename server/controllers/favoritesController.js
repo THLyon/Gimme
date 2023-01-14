@@ -4,6 +4,13 @@ const fetch = (...args) =>
 	import('node-fetch').then(({default: fetch}) => fetch(...args));
 
 
+//! routes for DB 
+    //* post general created accounts
+    //* get favorites
+    //* post Favorites
+
+
+//! Routes for favorites to get all players and search it? 
 //api to access current season
 const currentSeasonApi = `https://api.sportsdata.io/golf/v2/json/CurrentSeason`;
 
@@ -28,11 +35,11 @@ function currentDate(date, num = 0) {
     return ([year, month, day].join('-')+ 'T00:00:00');
 };
 
-const tournamentController = {}; 
+const favoritesController = {}; 
 // const courseController = {};
 
 //middleware to access season: 
-tournamentController.getSeason = async (req, res, next) => {
+favoritesController.getSeason = async (req, res, next) => {
     fetch(currentSeasonApi, {
         method: 'GET',
         headers: {
@@ -57,7 +64,7 @@ tournamentController.getSeason = async (req, res, next) => {
 
 
 //middleware to access tournament:
-tournamentController.getTournament =  (req, res, next) => {
+favoritesController.getTournament =  (req, res, next) => {
   let seasonId = res.locals.season
         fetch(`https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`,{
         method: 'GET',
@@ -92,7 +99,7 @@ tournamentController.getTournament =  (req, res, next) => {
 
 
 //middleware to access leaderboard
-tournamentController.getLeaderboard =  (req, res, next) => {
+favoritesController.getFavorites =  (req, res, next) => {
     let tournamentId = res.locals.tournament;
     console.log('leaderboard')
     // fetch(`https://api.sportsdata.io/golf/v2/json/Leaderboard/${tournamentId}`,{
@@ -127,7 +134,7 @@ tournamentController.getLeaderboard =  (req, res, next) => {
          }
          console.log(leaders)
          console.log(leaders.length)
-         res.locals.leaders = leaders;
+         res.locals.favorites = favorites;
          return next();
     })
     .catch(err => createErr({
@@ -148,4 +155,4 @@ const createErr = (errInfo) => {
     }
 }
 
-module.exports = tournamentController;
+module.exports = favoritesController;

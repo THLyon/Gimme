@@ -5,6 +5,7 @@ const tournamentController = require('../controllers/tournamentController');
 // import leaderboardController from '../controllers/leaderboardController.js';
 // const leaderboardController = require('../controllers/leaderboardController.js')
 const courseController = require('../controllers/courseController');
+const favoritesController = require('../controllers/favoritesController');
 const router = express.Router(); 
 
 //access leaderboard data here; 
@@ -24,6 +25,10 @@ router.get('/season', tournamentController.getSeason, (req, res) => {
 
 router.get('/test', tournamentController.getLeaderboard, (req, res) => {
     return res.status(200).json(res.locals.leaders)
+})
+
+router.get('/favorites', favoritesController.getSeason, favoritesController.getTournament, favoritesController.getFavorites, (req, res) => {
+    res.status(200).send(res.locals.favorites);
 })
 
 

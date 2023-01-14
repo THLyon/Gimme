@@ -53,7 +53,7 @@ courseController.getSeason = (req, res, next) => {
        })));
 }
 
-courseController.getTournament =  (req, res, next) => {
+courseController.getTournament = (req, res, next) => {
   let seasonId = res.locals.season
         fetch(`https://api.sportsdata.io/golf/v2/json/Tournaments/${seasonId}`,{
         method: 'GET',
