@@ -4,11 +4,19 @@ import '../styling/Footer.styles.css'
 const Footer = () => {
     return (
         <div className = 'footer-div'>
-            {/* <link id='home'> Home </link>
-            <link id='about'> About  </link>
-            <link id='API'> API </link>
-            <li> Created by Tanner Lyon </li>
-            <link id='chrome-extension'> Chrome Extension </link> */}
+            <div className='footer-spread'>
+                <div className='left-div'>
+                    <ul id='home'> Home </ul>
+                </div>
+                <div className='center-div'>
+                <ul> Created by Tanner Lyon </ul>
+                </div>
+                <div className='right-div'>
+                    <ul id='about'> About  </ul>
+                    <ul id='API'> API </ul>
+                    <ul id='chrome-extension'> Chrome Extension </ul>
+                </div>
+            </div>
         </div>
     )
 }; 

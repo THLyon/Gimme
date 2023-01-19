@@ -6,3 +6,34 @@
     height: 40px;
     background-color: rgb(37, 59, 37);
 }
+
+.footer-spread{
+    position: flex;
+    flex-direction: row; 
+}
+.left-div{
+    position: flex;
+    justify-content: flex-start;
+    align-items: center; 
+    /* text-align: center;
+    float: center; */
+    padding: 0px;
+}
+
+.center-div{
+    position: flex;
+    justify-content: center;
+    align-items: center; 
+    /* text-align: center;
+    float: center; */
+    padding: 0px;
+}
+
+.right-div{
+    position: flex;
+    justify-content: flex-end;
+    align-items: center; 
+    /* text-align: center;
+    float: center; */
+    padding: 0px;
+}
