@@ -32,4 +32,4 @@ router.get('/favorites', favoritesController.getSeason, favoritesController.getT
 })
 
 
-module.exports= router; 
+module.exports = router; 
