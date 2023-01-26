@@ -9,8 +9,8 @@ const favoritesController = require('../controllers/favoritesController');
 const dbController = require('../controllers/dbController');
 const router = express.Router(); 
 
-//access leaderboard data here; 
 
+//! API Controller Routes
 router.get('/gimme', tournamentController.getSeason, tournamentController.getTournament, tournamentController.getLeaderboard, (req, res) => {
     res.status(200).send(res.locals.leaders);  //.tournamentData
 });
@@ -45,18 +45,5 @@ router.get('/:name', dbController.findUser, (req, res) => {
 router.delete('/:name', dbController.deleteUser, (req, res) => {
     return res.status(200).json(res.locals.deleteUser)
 })
-
-//routes for Model
-
-//post
-    //create username
-//get
-    //get favorites
-    //get username && password
-//delete
-    //delete favorites
-    //delete account
-//update
-    //add favorites
 
 module.exports = router; 
