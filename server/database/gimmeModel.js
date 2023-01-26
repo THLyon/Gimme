@@ -14,33 +14,27 @@ mongoose.connect(MONGO_URI, {
 
 const Schema = mongoose.Schema;
 
-// Todo: 
-    //* Content: 
-        //* -Name
-        //* -Email
-        //* -Password
-        //* -Favorites
-        //* -Settings
-    //* Favorites: 
-        //* -index
-        //* -player
 const groupSchema = new Schema({
-  firstName: String,
-  lastName: String,
-  userName: String,
-  password: String,
-  email: String,
+  firstName: {type: String, required: true},
+  lastName: {type: String, required: true},
+  userName: {
+    type: String,
+    required: true
+  },
+  password: {
+    type: String,
+    required: true,
+  },
+  email: {type: String, required: true},
   favorites: {
     type: String,
   }
 });
 
 // creats a model for the 'species' collection that will be part of the export
-const Group = mongoose.model('group', groupSchema);
+const Gimme = mongoose.model('Gimme', groupSchema);
 
 
 
 // exports all the models in an object to be used in the controller
-module.exports = {
-  Group,
-};
+module.exports = Gimme;

@@ -6,6 +6,7 @@ const tournamentController = require('../controllers/tournamentController');
 // const leaderboardController = require('../controllers/leaderboardController.js')
 const courseController = require('../controllers/courseController');
 const favoritesController = require('../controllers/favoritesController');
+const dbController = require('../controllers/dbController');
 const router = express.Router(); 
 
 //access leaderboard data here; 
@@ -29,6 +30,20 @@ router.get('/test', tournamentController.getLeaderboard, (req, res) => {
 
 router.get('/favorites', favoritesController.getSeason, favoritesController.getTournament, favoritesController.getFavorites, (req, res) => {
     res.status(200).send(res.locals.favorites);
+})
+
+
+//! DB ROUTES
+router.post('/addUser', dbController.addUser, (req, res) => {
+    return res.status(200).json(res.locals.newUser); 
+})
+
+router.get('/:name', dbController.findUser, (req, res) => {
+    return res.status(200).send(res.locals.foundUser);
+})
+
+router.delete('/:name', dbController.deleteUser, (req, res) => {
+    return res.status(200).json(res.locals.deleteUser)
 })
 
 //routes for Model
