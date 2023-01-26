@@ -31,5 +31,17 @@ router.get('/favorites', favoritesController.getSeason, favoritesController.getT
     res.status(200).send(res.locals.favorites);
 })
 
+//routes for Model
+
+//post
+    //create username
+//get
+    //get favorites
+    //get username && password
+//delete
+    //delete favorites
+    //delete account
+//update
+    //add favorites
 
 module.exports = router; 

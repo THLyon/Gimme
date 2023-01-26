@@ -9,7 +9,7 @@
 
 .footer-spread{
     position: flex;
-    flex-direction: row; 
+    flex-direction: row-wrap; 
 }
 .left-div{
     position: flex;

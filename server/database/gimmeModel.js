@@ -7,7 +7,7 @@ mongoose.connect(MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   // sets the name of the DB that our collections are part of
-  dbName: 'starwars'
+  dbName: 'Gimme'
 })
   .then(() => console.log('Connected to Mongo DB.'))
   .catch(err => console.log(err));
@@ -25,9 +25,13 @@ const Schema = mongoose.Schema;
         //* -index
         //* -player
 const groupSchema = new Schema({
-  name: String,
+  firstName: String,
+  lastName: String,
+  userName: String,
+  password: String,
+  email: String,
   favorites: {
-
+    type: String,
   }
 });
 
