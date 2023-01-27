@@ -1,10 +1,13 @@
-import {useState, useEffect} from 'react'; 
+import {useState, useEffect} from 'react';
+import { router } from 'react-router';
 import Favorites from './Components/Favorites';
 import Leaderboard from './Components/Leaderboard';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Tournament from './Components/Tournament';
-import Feed from './Components/Feed'
+import Feed from './Components/Feed';
+import Signin from './Components/Signin';
+import Signup from './Components/Signup';
 //import Player from './Components/Player';
 import './styling/styles.css';
 
@@ -56,6 +59,8 @@ const App = () => {
     return (
         <div className='App'>
                 <Header />
+                <Route path='/Signup' element={<Signin/>}></Route>
+                <Route path='/Signin' element={<Signup/>}></Route>
                 <Tournament tournament = {tournament} />
                 {/* <Favorites favorites = {favorites}/> */}
                 <Leaderboard leaderBoard = {leaderBoard} />

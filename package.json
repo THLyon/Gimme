@@ -64,7 +64,7 @@
     "react": "^18.2.0",
     "react-chrome-redux": "^2.0.0-alpha.5",
     "react-dom": "^18.2.0",
-    "react-router": "^6.4.1",
+    "react-router": "^6.8.0",
     "react-router-dom": "^6.4.1",
     "react-twitter-embed": "^4.0.4",
     "react-twitter-widgets": "^1.11.0",
