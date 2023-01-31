@@ -10,7 +10,7 @@ const dbController = require('../controllers/dbController');
 const router = express.Router(); 
 
 
-//! API Controller Routes
+//! API CONTROLLER ROUTES
 router.get('/gimme', tournamentController.getSeason, tournamentController.getTournament, tournamentController.getLeaderboard, (req, res) => {
     res.status(200).send(res.locals.leaders);  //.tournamentData
 });
@@ -27,6 +27,10 @@ router.get('/season', tournamentController.getSeason, (req, res) => {
 router.get('/test', tournamentController.getLeaderboard, (req, res) => {
     return res.status(200).json(res.locals.leaders)
 })
+
+
+
+//! USER ROUTES
 
 router.get('/favorites', favoritesController.getSeason, favoritesController.getTournament, favoritesController.getFavorites, (req, res) => {
     res.status(200).send(res.locals.favorites);
