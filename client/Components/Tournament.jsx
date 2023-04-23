@@ -1,5 +1,5 @@
 import React from 'react'; 
-import '../styling/Tournament.styles.css'
+import '../Styling/Tournament.styles.css'
 
 const Tournament = ({tournament}) => {
 

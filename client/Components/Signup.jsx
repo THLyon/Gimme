@@ -1,7 +1,7 @@
 import {useEffect, react} from 'react'; 
 import Header from './Header';
 import Footer from './Footer';
-import '../styles/Signup.styles.css';
+import '../Styling/Signup.styles.css';
 
 const Signup = () => {
     const [firstName, firstNameOnChange] = useInput('');

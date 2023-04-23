@@ -1,7 +1,7 @@
 import {useEffect, react} from 'react'; 
 import Header from './Header';
 import Footer from './Footer';
-import '../styles/Signin.styles.css'
+import '../Styling/Signin.styles.css'
 
 const Signin = () => {
    

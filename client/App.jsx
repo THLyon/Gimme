@@ -1,5 +1,5 @@
 import {useState, useEffect} from 'react';
-import { router } from 'react-router';
+// import { Route } from 'react-router-dom';
 import Favorites from './Components/Favorites';
 import Leaderboard from './Components/Leaderboard';
 import Header from './Components/Header';
@@ -59,8 +59,8 @@ const App = () => {
     return (
         <div className='App'>
                 <Header />
-                <Route path='/Signup' element={<Signin/>}></Route>
-                <Route path='/Signin' element={<Signup/>}></Route>
+                {/* <Route path='/Signup' element={<Signin/>}></Route>
+                <Route path='/Signin' element={<Signup/>}></Route> */}
                 <Tournament tournament = {tournament} />
                 {/* <Favorites favorites = {favorites}/> */}
                 <Leaderboard leaderBoard = {leaderBoard} />
